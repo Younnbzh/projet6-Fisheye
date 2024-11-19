@@ -1,7 +1,4 @@
     async function getPhotographers() {
-        // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet, 
-        // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-        // on realise un fetch du json avec await pour eviter l'async
         try {
             const response = await fetch('data/photographers.json');
             const data = await response.json();
