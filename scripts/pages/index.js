@@ -1,55 +1,27 @@
-    async function getPhotographers() {
-        try {
-            const response = await fetch('data/photographers.json');
-            const data = await response.json();
-            console.log(data);
-            return data;
-        } catch (error) {
-            console.error(error);
-        }
+// Import du template de la card photographe
+import { createPhotographerCard } from '../templates/photographer.js'
+// Récupére les données des photographes depuis un fichier JSON
+async function getPhotographersData() {
+    const response = await fetch('data/photographers.json');
+    if (!response.ok) {
+        throw new Error('Fetch error')
     }
-    
-        /*
-        let photographers = [
-            {
-                "name": "Ma data test",
-                "id": 1,
-                "city": "Paris",
-                "country": "France",
-                "tagline": "Ceci est ma data test",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Autre data test",
-                "id": 2,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "Ceci est ma data test 2",
-                "price": 500,
-                "portrait": "account.png"
-            },
-        ]
-        // et bien retourner le tableau photographers seulement une fois récupéré
-        return ({
-            photographers: [...photographers, ...photographers, ...photographers]})
-            */
-
-    async function displayData(photographers) {
-        const photographersSection = document.querySelector(".photographer_section");
-
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerTemplate(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-        });
-    }
-
-    async function init() {
-        // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
-        displayData(photographers);
-    }
-    
-    init();
-    
+    const photographersData = await response.json();
+    return photographersData;
+}
+// Fonction pour afficher les cartes des photographes sur la page
+async function renderPhotographerCards(photographers) {
+    const photographersContainer = document.querySelector(".photographerSection");
+    photographers.forEach((photographerInfo) => {
+        // Utilise un template pour créer la carte du photographe dans templates/photographer.js
+        const photographerCard = createPhotographerCard(photographerInfo);
+        const cardElement = photographerCard.generateCardDOM();
+        photographersContainer.appendChild(cardElement);
+    });
+}
+// Init
+async function init() {
+    const { photographers } = await getPhotographersData();
+    renderPhotographerCards(photographers);
+}
+init();

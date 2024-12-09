@@ -1,53 +1,394 @@
-#contact_modal {
-    display: none;
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding: 0;
 }
 
-.photograph-header {
+/* Boîte d'informations en bas à droite */
+#bottomRightBox {
+    position: fixed;
+    bottom: 0;
+    right: 2%;
+    background-color: #DB8876;
+    padding: 15px;
+    border-radius: 5px;
+    width: 345px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+#bottomRightBox p {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+#dailyRate {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Conteneur des likes */
+#sumLikesContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+}
+
+/* Header photographe */
+.photographHeader {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
-}
-
-.contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
+    margin: 0 5%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
 }
 
-.modal header {
-    justify-content: space-between;
+.headerContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
 }
 
-.modal header img {
+#photographHeader div h1 {
+    color: #D3573C;
+    font-size: 64px;
+}
+
+#photographHeader div h2 {
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#photographHeader p {
+    color: #525252;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+/* Filtre */
+#sortLabel {
+    margin-right: 1%;
+}
+
+.filterBar {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 5%;
+    margin-top: 2%;
+    align-items: center;
+}
+
+.filterBar h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.selectMenu {
+    position: relative;
+    display: inline-block;
+    background-color: #901C1C;
+    width: 170px;
+    border-radius: 5px;
+}
+
+.selectBtn {
+    height: 69px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.selectBtn:focus {
+    outline: none;
+}
+
+.optionsList {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: none;
+    background-color: #901C1C;
+    z-index: 10;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.optionItem {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    border-top: solid 1px white;
+    width: 110px;
+    margin: 0 auto;
+}
+
+.optionsList.active {
+    display: block;
+}
+
+.optionText {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.selectMenu.active {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.selectMenu.active .selectBtn {
+    border-bottom-color: transparent;
+}
+
+.selectMenu.active .optionsList {
+    display: block;
+}
+
+.selectMenu .fa-chevron-up {
+    display: none;
+}
+
+.selectMenu.active .fa-chevron-down {
+    display: none;
+}
+
+.selectMenu.active .fa-chevron-up {
+    display: block;
+}
+
+/* médias */
+#mediaContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+.mediaInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.mediaTitle {
+    color: #901C1C;
+    font-size: 24px;
+    line-height: 31px;
+    font-weight: 400;
+}
+
+.mediaElement {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
     cursor: pointer;
 }
 
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
+.headerContainer img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
+/* likes */
+.likesContainer {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 20%;
+}
+
+.likesContainer i {
+    color: #901C1C;
+    font-size: 18px;
+}
+
+.likeButton {
+    background-color: initial;
+    border: none;
+    cursor: pointer;
+}
+
+.heartIcon {
+    color: #901C1C;
+    font-size: 18px;
+}
+
+.mediaLikes {
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Lightbox */
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.95)
+}
+
+#lightboxContent {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#lightboxContent .mediaElement {
+    cursor: auto;
+}
+
+#mediaLightbox img.mediaElement {
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+}
+
+#mediaLightbox video.mediaElement {
+    width: 95%;
+    height: 95%;
+}
+
+.videoContainer {
+    position: relative;
+}
+
+.videoOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.videoOverlayHidden {
+    display: none;
+}
+
+.lightboxTitle {
+    font-size: 24px;
+    color: #901C1C;
+    padding: 12px 0px 0px 0px;
+    margin: 0px;
+}
+
+.videoContainer.mediaElement {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mediaLightbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 85%;
+    flex-direction: column;
+}
+
+#leftArrow,
+#rightArrow {
+    font-size: 35px;
+    position: absolute;
+    color: #901C1C;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#leftArrow {
+    left: 2%;
+}
+
+#rightArrow {
+    right: 2%;
+}
+
+.closeButton {
+    color: #901C1C;
+    font-size: 60px;
+    position: absolute;
+    right: 2%;
+    cursor: pointer;
+}
+
+.modalContent {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 30%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2%;
+}
+
+.modalContent header {
+    justify-content: space-between;
+    width: 100%;
+    align-items: start;
+    height: auto;
+    padding-bottom: 30px;
+}
+
+#closeButton {
+    cursor: pointer;
+    width: 7%;
+}
+
+.modalTitle {
+    font-size: 45px;
+    font-weight: 400;
+    text-align: left;
+    color: #000;
+    line-height: 59px;
+    margin-top: -15px;
+}
+
+/* Contact */
 form {
     display: flex;
     width: 100%;
@@ -57,7 +398,9 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 28px;
+    font-weight: 400;
+    padding: 5px 0px;
 }
 
 form div {
@@ -70,7 +413,91 @@ form div {
 
 form input {
     width: 100%;
-    height: 68px;
+    height: 43px;
     border: none;
     border-radius: 5px;
+    color: #312E2E;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+form textarea {
+    width: 100% !important;
+    border: none;
+    border-radius: 5px;
+}
+
+#contactModal {
+    display: none;
+}
+
+.modalBackground {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.95)
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modalContent {
+    max-width: 500px;
+    animation-name: modalOpen;
+    animation-duration: 1s;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#contactModal .modalContent {
+    height: auto;
+}
+
+.modalBody {
+    width: 90%;
+}
+
+.contactButton {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    width: 170px;
+    height: 69px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.contactButton:hover {
+    background-color: #DB8876;
+    transition: 0.5s;
+}
+
+#submitButton.contactButton {
+    width: 170px;
+    height: 70px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.contactButton.contactButton:hover {
+    background-color: #901C1C;
 }
