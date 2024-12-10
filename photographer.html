@@ -26,8 +26,8 @@
 
         <div class="selectBtn" role="option">
           <span class="defaultFilterValue" data-sort="popularity">Popularité</span>
-          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
-          <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+          <span class="fa-solid fa-chevron-down" aria-hidden="true"></span>
+          <span class="fa-solid fa-chevron-up" aria-hidden="true"></span>
         </div>
         <!-- Tri -->
         <ul class="optionsList" role="list" aria-hidden="true">
@@ -50,39 +50,38 @@
     <div id="bottomRightBox">
       <div id="sumLikesContainer">
         <p id="likesSum"></p>
-        <i class="fa-solid fa-heart"></i>
+        <span class="fa-solid fa-heart"></span>
       </div>
       <p id="dailyRate"></p>
     </div>
   </main>
   <!-- Lightbox -->
-  <div id="lightbox" aria-hidden="true" role="dialog" aria-label="Vue agrandie de l'image">
+  <div id="lightbox" aria-hidden="true" role="dialog" aria-label="image closeup view">
     <div id="lightboxContent">
       <header>
-        <span class="closeButton" aria-label="Fermer le dialogue" id="closeLightbox" tabindex="0">&times;</span>
+        <span class="closeButton" aria-label="Close dialog" id="closeLightbox" tabindex="0">&times;</span>
       </header>
-      <div role="button" aria-label="Image précédente" class="controlButton controlLeft" tabindex="0" id="leftArrow">
+      <div role="button" aria-label="Previous image" class="controlButton controlLeft" tabindex="0" id="leftArrow">
         <span class="imageControl prevImage">
-          <i class="fa-solid fa-chevron-left"></i>
+          <span class="fa-solid fa-chevron-left"></span>
         </span>
       </div>
       <div id="mediaLightbox"></div>
 
-      <div role="button" aria-label="Image suivante" class="controlButton controlRight" tabindex="0" id="rightArrow">
+      <div role="button" aria-label="Next image" class="controlButton controlRight" tabindex="0" id="rightArrow">
         <span class="imageControl nextImage">
-          <i class="fa-solid fa-chevron-right"></i>
+          <span class="fa-solid fa-chevron-right"></span>
         </span>
       </div>
     </div>
   </div>
   <!-- Contact -->
   <div id="contactModal" class="modalBackground" aria-hidden="true" role="dialog" aria-describedby="modalTitle">
-    <div class="modalContent">
+    <div class="modalContent" aria-labelledby="modalTitle" >
       <header>
-        <h2 id="modalTitle" class="modalTitle">Contactez-moi<br><span id="modalPhotographername"></span></h2>
-        <img src="./assets/icons/close.svg" id="closeButton" alt="Fermer le formulaire de contact" aria-label="Fermer le formulaire de contact" tabindex="0">
+        <h2 id="modalTitle" class="modalTitle" aria-label="Contact me">Contactez-moi<br><span id="modalPhotographername"></span></h2>
+        <img src="./assets/icons/close.svg" id="closeButton" alt="Fermer le formulaire de contact" aria-label="Close contact form" tabindex="0">
       </header>
-
       <div class="modalBody">
         <form id="contactForm">
           <div>
@@ -98,7 +97,7 @@
             <label for="message" id="labelMessage">Votre Message :</label>
             <textarea id="message" name="message" rows="4" aria-labelledby="labelMessage" required></textarea>
           </div>
-          <button class="contactButton" aria-label="Envoyer" id="submitButton">Envoyer</button>
+          <button class="contactButton" aria-label="Send" id="submitButton">Envoyer</button>
         </form>
       </div>
     </div>

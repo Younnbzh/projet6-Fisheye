@@ -220,7 +220,7 @@ h4 {
     width: 20%;
 }
 
-.likesContainer i {
+.likesContainer span {
     color: #901C1C;
     font-size: 18px;
 }

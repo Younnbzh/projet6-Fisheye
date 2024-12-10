@@ -82,9 +82,9 @@ function createMediaCard(mediaData, photographerName) {
     : `assets/images/${photographerName}/${mediaData.video}`;
 
   const mediaElement = mediaData.image
-    ? `<img tabindex="0" class="mediaElement" data-mediaId="${mediaData.id}" src="${mediaPath}" alt="${mediaData.title}">`
-    : `<div tabindex="0" aria-label="${mediaData.title}" class="videoContainer mediaElement" data-mediaId="${mediaData.id}" src="${mediaPath}"><video aria-label="${mediaData.title}, vue rapprochée" controls class="mediaElement" data-mediaId="${mediaData.id}" src="${mediaPath}"></video><div class="videoOverlay"></div></div>`;
-  const likeButton = `<button aria-label="likes" class="likeButton" data-mediaId="${mediaData.id}"><i class="fa-solid fa-heart heart-icon"></i></button>`;
+    ? `<img tabindex="0" class="mediaElement" data-mediaId="${mediaData.id}" src="${mediaPath}" alt="${mediaData.title}, closeup view">`
+    : `<div tabindex="0" aria-label="${mediaData.title}, closeup view" class="videoContainer mediaElement" data-mediaId="${mediaData.id}" src="${mediaPath}"><video aria-label="${mediaData.title}, closeup view" controls class="mediaElement" data-mediaId="${mediaData.id}" src="${mediaPath}"></video><div class="videoOverlay"></div></div>`;
+  const likeButton = `<button aria-label="likes" class="likeButton" data-mediaId="${mediaData.id}"><span class="fa-solid fa-heart heart-icon"></span></button>`;
 
   return `<div class="media-container">
           ${mediaElement}
